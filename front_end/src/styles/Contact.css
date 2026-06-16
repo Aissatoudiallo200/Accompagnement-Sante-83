@@ -1,0 +1,31 @@
+.contact-container {
+  min-height: 100vh;
+  background-color: #f4fbf8;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.contact-card {
+  background: #ffffff;
+  max-width: 850px;
+  width: 100%;
+  padding: 3.5rem;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e3f2ec;
+}
+.contact-title { font-size: 2.25rem; color: #164e3c; font-weight: 800; text-align: center; margin-bottom: 1rem; }
+.contact-subtitle { color: #526b62; text-align: center; line-height: 1.6; margin-bottom: 2rem; }
+.contact-divider { border: 0; height: 1px; background: #e3f2ec; margin: 2rem 0; }
+.contact-section h2 { font-size: 1.4rem; color: #238662; margin-bottom: 1.25rem; border-bottom: 2px solid #e3f2ec; padding-bottom: 0.5rem; }
+.project-leader { background: #fdfdfd; padding: 1.5rem; border-radius: 16px; border: 1px dashed #238662; margin-bottom: 2.5rem; }
+.member-info h3, .member-card h3 { color: #164e3c; font-size: 1.2rem; margin: 0 0 0.5rem 0; }
+.member-title { font-weight: 600; color: #334155; margin: 0; }
+.member-specialty { color: #64748b; font-size: 0.95rem; margin: 0 0 0.75rem 0; }
+.contact-email { color: #238662; text-decoration: none; font-weight: 500; }
+.contact-email:hover { text-decoration: underline; }
+.members-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.member-card { background: #f8fafc; padding: 1.5rem; border-radius: 16px; border: 1px solid #edf2f7; }
+@media (max-width: 640px) { .members-grid { grid-template-columns: 1fr; } .contact-card { padding: 2rem 1.5rem; } }

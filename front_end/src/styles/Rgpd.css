@@ -1,0 +1,95 @@
+.rgpd-container {
+  min-height: 100vh;
+  background-color: #f4fbf8; /* Fond légèrement vert très clair comme ton site */
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.rgpd-card {
+  background: #ffffff;
+  max-width: 850px;
+  width: 100%;
+  padding: 3.5rem;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e3f2ec;
+}
+
+.rgpd-title {
+  font-size: 2.25rem;
+  color: #164e3c; /* Vert très foncé */
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.rgpd-subtitle {
+  color: #526b62;
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+.rgpd-divider {
+  border: 0;
+  height: 1px;
+  background: #e3f2ec;
+  margin: 2rem 0;
+}
+
+.rgpd-section {
+  margin-bottom: 2rem;
+}
+
+.rgpd-section h2 {
+  font-size: 1.3rem;
+  color: #238662; /* Le vert émeraude de tes boutons */
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.rgpd-section p {
+  color: #334155;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.rgpd-section ul {
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.rgpd-section li {
+  color: #334155;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
+.rgpd-notice {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #64748b;
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 12px;
+  border-left: 4px solid #238662;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .rgpd-container {
+    padding: 1.5rem 1rem;
+  }
+  .rgpd-card {
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+  }
+  .rgpd-title {
+    font-size: 1.75rem;
+  }
+}

@@ -1,0 +1,964 @@
+:root {
+  --expert-dashboard-bg: #f3fbf7;
+  --expert-dashboard-surface: rgba(255, 255, 255, 0.78);
+  --expert-dashboard-surface-strong: #ffffff;
+  --expert-dashboard-border: rgba(47, 143, 107, 0.14);
+  --expert-dashboard-primary: #2f8f6b;
+  --expert-dashboard-primary-deep: #21694f;
+  --expert-dashboard-primary-soft: #dff4e8;
+  --expert-dashboard-text: #17332a;
+  --expert-dashboard-muted: #587269;
+  --expert-dashboard-shadow: 0 20px 50px rgba(29, 73, 58, 0.1);
+  --expert-dashboard-shadow-soft: 0 14px 28px rgba(29, 73, 58, 0.08);
+}
+
+.expert-dashboard-medical {
+  min-height: 100vh;
+  display: flex;
+  color: var(--expert-dashboard-text);
+  background:
+    radial-gradient(circle at top left, rgba(223, 244, 232, 0.95), transparent 34rem),
+    radial-gradient(circle at top right, rgba(219, 245, 241, 0.8), transparent 28rem),
+    var(--expert-dashboard-bg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.expert-dashboard-medical * {
+  box-sizing: border-box;
+}
+
+.expert-dashboard-medical button {
+  font: inherit;
+}
+
+.expert-loading-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 1rem;
+  color: var(--expert-dashboard-primary-deep);
+  background: var(--expert-dashboard-bg);
+  font-weight: 750;
+}
+
+.expert-spinner {
+  animation: expertSpin 0.9s linear infinite;
+}
+
+@keyframes expertSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Sidebar, calée sur le dashboard patient */
+.expert-sidebar {
+  width: 270px;
+  min-height: calc(100vh - 2.5rem);
+  margin: 1.25rem 0 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--expert-dashboard-border);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--expert-dashboard-shadow);
+  backdrop-filter: blur(16px);
+}
+
+.expert-sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--expert-dashboard-border);
+}
+
+.expert-sidebar-logo {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  color: var(--expert-dashboard-primary);
+  background: var(--expert-dashboard-surface-strong);
+  box-shadow: var(--expert-dashboard-shadow-soft);
+}
+
+.expert-sidebar-logo svg {
+  color: var(--expert-dashboard-primary);
+  fill: var(--expert-dashboard-primary);
+}
+
+.expert-sidebar-brand-name {
+  font-size: 1.03rem;
+  font-weight: 750;
+}
+
+.expert-sidebar-brand-sub {
+  color: var(--expert-dashboard-muted);
+  font-size: 0.84rem;
+}
+
+.expert-sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 1.2rem;
+}
+
+.expert-nav-item,
+.expert-sidebar-logout {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.expert-nav-item {
+  position: relative;
+  border: 0;
+  padding: 0.9rem 1rem;
+  color: var(--expert-dashboard-muted);
+  background: transparent;
+  font-weight: 650;
+  text-align: left;
+}
+
+.expert-nav-item:hover {
+  color: var(--expert-dashboard-primary-deep);
+  background: rgba(223, 244, 232, 0.82);
+}
+
+.expert-nav-item.active {
+  color: #fff;
+  background: var(--expert-dashboard-primary);
+  box-shadow: 0 14px 28px rgba(47, 143, 107, 0.2);
+}
+
+.expert-nav-badge {
+  margin-left: auto;
+  min-width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  padding: 0 0.45rem;
+  border-radius: 999px;
+  color: #fff;
+  background: #dc2626;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.expert-nav-item.active .expert-nav-badge {
+  color: var(--expert-dashboard-primary-deep);
+  background: #fff;
+}
+
+.expert-sidebar-logout {
+  margin: 0 1.2rem 1.2rem;
+  width: calc(100% - 2.4rem);
+  padding: 0.9rem 1rem;
+  justify-content: center;
+  border: 1px solid rgba(220, 38, 38, 0.15);
+  color: #b42318;
+  background: rgba(254, 242, 242, 0.92);
+  font-weight: 650;
+}
+
+.expert-sidebar-logout:hover {
+  background: #fee2e2;
+}
+
+/* Main */
+.expert-main-shell {
+  flex: 1;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.expert-top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 1.5rem;
+  border: 1px solid var(--expert-dashboard-border);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: var(--expert-dashboard-shadow-soft);
+  backdrop-filter: blur(16px);
+}
+
+.expert-welcome h1 {
+  margin: 0;
+  font-size: 1.55rem;
+  letter-spacing: -0.04em;
+}
+
+.expert-welcome p {
+  margin: 0.22rem 0 0;
+  color: var(--expert-dashboard-muted);
+}
+
+.expert-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.expert-notif-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--expert-dashboard-border);
+  border-radius: 16px;
+  color: var(--expert-dashboard-primary-deep);
+  background: rgba(255, 255, 255, 0.88);
+  cursor: pointer;
+}
+
+.expert-notif-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  background: #dc2626;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.expert-user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.expert-user-avatar,
+.expert-patient-avatar-small,
+.expert-demand-avatar,
+.expert-apt-avatar,
+.expert-patient-avatar-large,
+.expert-profile-avatar-large {
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, #2f8f6b, #21694f);
+}
+
+.expert-user-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.expert-user-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.expert-user-role,
+.expert-request-meta,
+.expert-demand-label,
+.expert-agenda-meta,
+.expert-apt-type,
+.expert-patient-stats-inline,
+.expert-detail-label,
+.expert-info-label,
+.expert-profile-title,
+.expert-profile-stat-label {
+  color: var(--expert-dashboard-muted);
+}
+
+.expert-main-content {
+  padding: 1.25rem 0 0;
+}
+
+.expert-tab-content {
+  max-width: 1400px;
+  animation: expertFadeIn 0.25s ease both;
+}
+
+@keyframes expertFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.expert-page-title {
+  margin: 0 0 1.25rem;
+  padding: 2rem;
+  border: 1px solid var(--expert-dashboard-border);
+  border-radius: 30px;
+  color: var(--expert-dashboard-text);
+  background: var(--expert-dashboard-surface);
+  box-shadow: var(--expert-dashboard-shadow-soft);
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+}
+
+.expert-stats-medical {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.expert-stat-box,
+.expert-section,
+.expert-demand-card,
+.expert-appointment-row,
+.expert-patient-row,
+.expert-profile-banner,
+.expert-profile-section,
+.expert-empty-state {
+  border: 1px solid var(--expert-dashboard-border);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: var(--expert-dashboard-shadow-soft);
+}
+
+.expert-stat-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 24px;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.expert-stat-box:hover,
+.expert-demand-card:hover,
+.expert-appointment-row:hover,
+.expert-patient-row:hover {
+  transform: translateY(-3px);
+}
+
+.expert-stat-icon-wrap {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  color: var(--expert-dashboard-primary-deep);
+  background: var(--expert-dashboard-primary-soft);
+}
+
+.expert-stat-number {
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.expert-stat-label {
+  margin-top: 0.28rem;
+  color: var(--expert-dashboard-muted);
+  font-size: 0.9rem;
+}
+
+.expert-section {
+  margin-bottom: 1.8rem;
+  padding: 1.5rem;
+  border-radius: 24px;
+}
+
+.expert-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.expert-section-header h2,
+.expert-profile-section h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: -0.03em;
+}
+
+.expert-count-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.38rem 0.8rem;
+  border-radius: 999px;
+  color: var(--expert-dashboard-primary-deep);
+  background: var(--expert-dashboard-primary-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.expert-requests-table,
+.expert-agenda-list,
+.expert-appointments-table,
+.expert-patients-table {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expert-requests-table,
+.expert-agenda-list {
+  max-height: 265px;
+  gap: 0.65rem;
+  overflow-y: auto;
+  padding-right: 0.35rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--expert-dashboard-primary) transparent;
+}
+
+.expert-requests-table::-webkit-scrollbar,
+.expert-agenda-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.expert-requests-table::-webkit-scrollbar-track,
+.expert-agenda-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.expert-requests-table::-webkit-scrollbar-thumb,
+.expert-agenda-list::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--expert-dashboard-primary-soft);
+}
+
+.expert-requests-table::-webkit-scrollbar-thumb:hover,
+.expert-agenda-list::-webkit-scrollbar-thumb:hover {
+  background: var(--expert-dashboard-primary);
+}
+
+.expert-request-row,
+.expert-agenda-item,
+.expert-appointment-row,
+.expert-patient-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.35rem;
+  border-radius: 24px;
+}
+
+.expert-request-row,
+.expert-appointment-row {
+  justify-content: space-between;
+}
+
+.expert-request-patient,
+.expert-demand-patient-info,
+.expert-apt-patient-col {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.expert-patient-avatar-small,
+.expert-demand-avatar,
+.expert-apt-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.expert-patient-name-bold,
+.expert-demand-name,
+.expert-agenda-patient,
+.expert-apt-name,
+.expert-patient-name-large {
+  font-weight: 750;
+}
+
+.expert-request-actions-inline,
+.expert-demand-actions,
+.expert-apt-actions-col,
+.expert-apt-info-col,
+.expert-patient-stats-inline,
+.expert-profile-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.expert-btn-accept,
+.expert-btn-refuse,
+.expert-btn-accept-full,
+.expert-btn-refuse-full,
+.expert-btn-complete {
+  border: 0;
+  border-radius: 999px;
+  font-weight: 750;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.expert-btn-accept,
+.expert-btn-refuse {
+  padding: 0.72rem 1rem;
+}
+
+.expert-btn-accept,
+.expert-btn-accept-full,
+.expert-btn-complete {
+  color: #fff;
+  background: var(--expert-dashboard-primary);
+}
+
+.expert-btn-accept:hover,
+.expert-btn-accept-full:hover,
+.expert-btn-complete:hover {
+  background: var(--expert-dashboard-primary-deep);
+  transform: translateY(-2px);
+}
+
+.expert-btn-refuse,
+.expert-btn-refuse-full {
+  color: #b42318;
+  background: rgba(254, 242, 242, 0.92);
+}
+
+.expert-btn-refuse:hover,
+.expert-btn-refuse-full:hover {
+  background: #fee2e2;
+  transform: translateY(-2px);
+}
+
+.expert-agenda-time,
+.expert-apt-info-item,
+.expert-status-confirmed,
+.expert-badge-verified,
+.expert-badge-active {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.38rem 0.8rem;
+  border-radius: 999px;
+  color: var(--expert-dashboard-primary-deep);
+  background: var(--expert-dashboard-primary-soft);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.expert-agenda-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--expert-dashboard-border);
+}
+
+.expert-agenda-details {
+  flex: 1;
+}
+
+.expert-demands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.expert-demand-card {
+  padding: 1.5rem;
+  border-radius: 24px;
+}
+
+.expert-demand-header,
+.expert-demand-details-grid,
+.expert-demand-message {
+  margin-bottom: 1rem;
+}
+
+.expert-demand-details-grid,
+.expert-info-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.expert-demand-detail,
+.expert-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--expert-dashboard-border);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.expert-demand-detail svg,
+.expert-info-item svg {
+  color: var(--expert-dashboard-primary);
+}
+
+.expert-detail-value,
+.expert-info-value {
+  color: var(--expert-dashboard-text);
+  font-weight: 700;
+}
+
+.expert-demand-message {
+  padding: 1rem;
+  border-radius: 18px;
+  color: #92400e;
+  background: #fef3c7;
+  line-height: 1.55;
+}
+
+.expert-demand-actions {
+  margin-top: 1rem;
+}
+
+.expert-btn-accept-full,
+.expert-btn-refuse-full,
+.expert-btn-complete {
+  padding: 0.82rem 1rem;
+}
+
+.expert-btn-accept-full,
+.expert-btn-refuse-full {
+  flex: 1;
+}
+
+.expert-patient-avatar-large {
+  width: 62px;
+  height: 62px;
+  border-radius: 20px;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.expert-profile-banner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding: 1.5rem;
+  border-radius: 24px;
+}
+
+.expert-profile-avatar-large {
+  width: 76px;
+  height: 76px;
+  border-radius: 24px;
+}
+
+.expert-profile-name {
+  margin: 0 0 0.35rem;
+  font-size: 1.55rem;
+  letter-spacing: -0.04em;
+}
+
+.expert-profile-title {
+  margin: 0 0 0.8rem;
+}
+
+.expert-profile-sections {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.expert-profile-section {
+  padding: 1.5rem;
+  border-radius: 24px;
+}
+
+.expert-profile-section:last-child {
+  grid-column: 1 / -1;
+}
+
+.expert-profile-section h3 {
+  margin-bottom: 1rem;
+}
+
+.expert-profile-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.expert-profile-stat-item {
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+  padding: 1.25rem;
+  border-radius: 22px;
+  color: var(--expert-dashboard-primary-deep);
+  background: var(--expert-dashboard-primary-soft);
+  text-align: center;
+}
+
+.expert-profile-stat-number {
+  color: var(--expert-dashboard-text);
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.expert-empty-message,
+.expert-empty-state {
+  color: var(--expert-dashboard-muted);
+  font-weight: 650;
+}
+
+.expert-empty-message {
+  padding: 1.35rem;
+  border: 1px dashed var(--expert-dashboard-border);
+  border-radius: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.expert-empty-state {
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 1rem;
+  border-radius: 24px;
+  text-align: center;
+}
+
+.expert-empty-state svg {
+  color: var(--expert-dashboard-primary);
+}
+
+.expert-empty-state p {
+  margin: 0;
+  color: var(--expert-dashboard-text);
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+@media (max-width: 1024px) {
+  .expert-dashboard-medical {
+    flex-direction: column;
+  }
+
+  .expert-sidebar {
+    width: auto;
+    min-height: auto;
+    margin: 1rem 1rem 0;
+  }
+
+  .expert-sidebar-nav {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .expert-nav-item {
+    white-space: nowrap;
+  }
+
+  .expert-sidebar-logout {
+    margin-top: 0;
+  }
+
+  .expert-stats-medical,
+  .expert-profile-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .expert-profile-section:last-child {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .expert-main-shell {
+    padding: 1rem;
+  }
+
+  .expert-top-header,
+  .expert-request-row,
+  .expert-agenda-item,
+  .expert-appointment-row,
+  .expert-profile-banner {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .expert-header-right,
+  .expert-request-actions-inline,
+  .expert-demand-actions,
+  .expert-apt-actions-col {
+    width: 100%;
+  }
+
+  .expert-user-info {
+    flex: 1;
+  }
+
+  .expert-btn-accept,
+  .expert-btn-refuse,
+  .expert-btn-complete {
+    flex: 1;
+  }
+
+  .expert-profile-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .expert-agenda-divider {
+    display: none;
+  }
+}
+
+.expert-existing-proposals {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid var(--expert-dashboard-border);
+  border-radius: 18px;
+  background: var(--expert-dashboard-primary-soft);
+  color: var(--expert-dashboard-primary-deep);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-weight: 650;
+}
+
+.expert-existing-proposals span {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 0.88rem;
+}
+
+.expert-proposal-form {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid var(--expert-dashboard-border);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.expert-proposal-form-title {
+  margin-bottom: 0.8rem;
+  font-weight: 750;
+  color: var(--expert-dashboard-text);
+}
+
+.expert-proposal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.expert-proposal-row input {
+  width: 100%;
+  padding: 0.82rem 0.9rem;
+  border: 1px solid var(--expert-dashboard-border);
+  border-radius: 14px;
+  color: var(--expert-dashboard-text);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.expert-proposal-row input:focus {
+  outline: none;
+  border-color: var(--expert-dashboard-primary);
+  box-shadow: 0 0 0 4px rgba(47, 143, 107, 0.12);
+}
+
+.expert-btn-propose-submit,
+.expert-btn-propose-full {
+  border: 0;
+  border-radius: 999px;
+  font-weight: 750;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.expert-btn-propose-submit {
+  width: 100%;
+  padding: 0.82rem 1rem;
+  color: #fff;
+  background: var(--expert-dashboard-primary);
+}
+
+.expert-btn-propose-full {
+  flex: 1;
+  padding: 0.82rem 1rem;
+  color: var(--expert-dashboard-primary-deep);
+  background: var(--expert-dashboard-primary-soft);
+}
+
+.expert-btn-propose-submit:hover {
+  background: var(--expert-dashboard-primary-deep);
+}
+
+/* Accueil expert : liste agenda plus compacte */
+.expert-agenda-list {
+  max-height: 235px;
+  gap: 0.35rem;
+}
+
+.expert-agenda-item {
+  padding: 0.85rem 1.05rem;
+  border-radius: 18px;
+}
+
+.expert-agenda-time,
+.expert-status-confirmed {
+  padding: 0.28rem 0.65rem;
+}
+
+.expert-agenda-divider {
+  height: 34px;
+}
+
+/* Onglet agenda expert : 4 rendez-vous visibles puis scroll */
+.expert-appointments-table {
+  max-height: 510px;
+  overflow-y: auto;
+  padding-right: 0.35rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--expert-dashboard-primary) transparent;
+}
+
+.expert-appointments-table::-webkit-scrollbar {
+  width: 8px;
+}
+
+.expert-appointments-table::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.expert-appointments-table::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--expert-dashboard-primary-soft);
+}
+
+.expert-appointments-table::-webkit-scrollbar-thumb:hover {
+  background: var(--expert-dashboard-primary);
+}
+
+/* Notification badge layering */
+.expert-top-header {
+  position: relative;
+  z-index: 200;
+}

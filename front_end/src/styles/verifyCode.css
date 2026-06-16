@@ -1,0 +1,206 @@
+:root {
+  --verify-code-bg: #f3fbf7;
+  --verify-code-surface: #ffffff;
+  --verify-code-border: rgba(47, 143, 107, 0.14);
+  --verify-code-primary: #2f8f6b;
+  --verify-code-primary-deep: #21694f;
+  --verify-code-primary-soft: #dff4e8;
+  --verify-code-text: #17332a;
+  --verify-code-muted: #587269;
+  --verify-code-shadow: 0 22px 55px rgba(29, 73, 58, 0.12);
+}
+
+.verify-code-page {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--verify-code-text);
+  background:
+    radial-gradient(circle at top left, rgba(223, 244, 232, 0.95), transparent 34rem),
+    radial-gradient(circle at top right, rgba(219, 245, 241, 0.8), transparent 28rem),
+    var(--verify-code-bg);
+}
+
+.verify-code-back {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--verify-code-primary-deep);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.verify-code-shell {
+  width: min(500px, 100%);
+}
+
+.verify-code-card {
+  padding: 2rem;
+  border: 1px solid var(--verify-code-border);
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: var(--verify-code-shadow);
+  backdrop-filter: blur(14px);
+}
+
+.verify-code-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1.25rem;
+  border-radius: 20px;
+  color: var(--verify-code-primary);
+  background: var(--verify-code-surface);
+  box-shadow: 0 12px 30px rgba(29, 73, 58, 0.08);
+}
+
+.verify-code-heading span {
+  color: var(--verify-code-primary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.verify-code-heading h1 {
+  margin: 0.55rem 0 0.35rem;
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+}
+
+.verify-code-heading p {
+  margin-bottom: 1.35rem;
+  color: var(--verify-code-muted);
+  line-height: 1.6;
+}
+
+.verify-code-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.verify-code-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.verify-code-field label {
+  margin-bottom: 0.45rem;
+  font-size: 0.84rem;
+  font-weight: 750;
+}
+
+.verify-code-input {
+  min-height: 58px;
+  padding: 0.92rem 1rem;
+  border: 1px solid rgba(47, 143, 107, 0.2);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--verify-code-text);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.34em;
+  text-align: center;
+}
+
+.verify-code-input::placeholder {
+  color: rgba(88, 114, 105, 0.35);
+}
+
+.verify-code-input:focus {
+  outline: none;
+  border-color: var(--verify-code-primary);
+  box-shadow: 0 0 0 4px rgba(47, 143, 107, 0.14);
+}
+
+.verify-code-submit,
+.verify-code-secondary {
+  min-height: 52px;
+  border-radius: 999px;
+  font-size: 0.98rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.verify-code-submit {
+  margin-top: 0.35rem;
+  border: 0;
+  color: #fff;
+  background: var(--verify-code-primary);
+  box-shadow: 0 14px 28px rgba(47, 143, 107, 0.2);
+}
+
+.verify-code-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: var(--verify-code-primary-deep);
+}
+
+.verify-code-secondary {
+  border: 1px solid var(--verify-code-border);
+  color: var(--verify-code-primary-deep);
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.verify-code-submit:disabled,
+.verify-code-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.verify-code-error {
+  margin-bottom: 1rem;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid #fecaca;
+  border-radius: 16px;
+  background: #fef2f2;
+  color: #991b1b;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.verify-code-switch {
+  margin-top: 1.25rem;
+  color: var(--verify-code-muted);
+  font-size: 0.92rem;
+}
+
+.verify-code-switch a {
+  color: var(--verify-code-primary-deep);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.verify-code-switch a:hover,
+.verify-code-back:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .verify-code-page {
+    display: block;
+    padding: 1rem;
+  }
+
+  .verify-code-back {
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+  .verify-code-card {
+    padding: 1.4rem;
+    border-radius: 24px;
+  }
+
+  .verify-code-input {
+    font-size: 1.3rem;
+    letter-spacing: 0.22em;
+  }
+}

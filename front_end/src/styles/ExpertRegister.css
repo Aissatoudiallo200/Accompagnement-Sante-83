@@ -1,0 +1,222 @@
+:root {
+  --expert-register-bg: #f3fbf7;
+  --expert-register-surface: #ffffff;
+  --expert-register-border: rgba(47, 143, 107, 0.14);
+  --expert-register-primary: #2f8f6b;
+  --expert-register-primary-deep: #21694f;
+  --expert-register-primary-soft: #dff4e8;
+  --expert-register-text: #17332a;
+  --expert-register-muted: #587269;
+  --expert-register-shadow: 0 22px 55px rgba(29, 73, 58, 0.12);
+}
+
+.expert-register-page {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--expert-register-text);
+  background:
+    radial-gradient(circle at top left, rgba(223, 244, 232, 0.95), transparent 34rem),
+    radial-gradient(circle at top right, rgba(219, 245, 241, 0.8), transparent 28rem),
+    var(--expert-register-bg);
+}
+
+.expert-register-back {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--expert-register-primary-deep);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.expert-register-shell {
+  width: min(680px, 100%);
+}
+
+.expert-register-card {
+  padding: 2rem;
+  border: 1px solid var(--expert-register-border);
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: var(--expert-register-shadow);
+  backdrop-filter: blur(14px);
+}
+
+.expert-register-card-heading span {
+  color: var(--expert-register-primary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.expert-register-card-heading h2 {
+  margin: 0.55rem 0 0.35rem;
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+}
+
+.expert-register-card-heading p {
+  max-width: 500px;
+  margin-bottom: 1.35rem;
+  color: var(--expert-register-muted);
+  line-height: 1.6;
+}
+
+.expert-register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.expert-register-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.expert-register-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.expert-register-field label {
+  margin-bottom: 0.45rem;
+  font-size: 0.84rem;
+  font-weight: 750;
+}
+
+.expert-register-field input,
+.expert-register-field select {
+  padding: 0.92rem 1rem;
+  border: 1px solid rgba(47, 143, 107, 0.2);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  font-size: 0.95rem;
+  color: var(--expert-register-text);
+}
+
+.expert-register-select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.expert-register-select-wrap select {
+  width: 100%;
+  padding-right: 2.8rem;
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+.expert-register-select-wrap svg {
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
+  color: var(--expert-register-primary-deep);
+}
+
+.expert-register-field input:focus,
+.expert-register-field select:focus {
+  outline: none;
+  border-color: var(--expert-register-primary);
+  box-shadow: 0 0 0 4px rgba(47, 143, 107, 0.14);
+}
+
+.expert-register-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-top: 0.15rem;
+  color: var(--expert-register-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.expert-register-consent input {
+  margin-top: 0.2rem;
+  accent-color: var(--expert-register-primary);
+}
+
+.expert-register-consent a,
+.expert-register-switch a {
+  color: var(--expert-register-primary-deep);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.expert-register-submit {
+  min-height: 52px;
+  margin-top: 0.35rem;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--expert-register-primary);
+  font-size: 0.98rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(47, 143, 107, 0.2);
+}
+
+.expert-register-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: var(--expert-register-primary-deep);
+}
+
+.expert-register-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.expert-register-error {
+  margin-bottom: 1rem;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid #fecaca;
+  border-radius: 16px;
+  background: #fef2f2;
+  color: #991b1b;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.expert-register-switch {
+  margin-top: 1.25rem;
+  color: var(--expert-register-muted);
+  font-size: 0.92rem;
+}
+
+.expert-register-switch a:hover,
+.expert-register-consent a:hover,
+.expert-register-back:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 680px) {
+  .expert-register-page {
+    display: block;
+    padding: 1rem;
+  }
+
+  .expert-register-back {
+    position: static;
+    margin-bottom: 1rem;
+  }
+
+  .expert-register-card {
+    padding: 1.4rem;
+    border-radius: 24px;
+  }
+
+  .expert-register-row {
+    grid-template-columns: 1fr;
+  }
+}
