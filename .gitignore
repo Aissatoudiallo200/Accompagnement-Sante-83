@@ -1,0 +1,19 @@
+.DS_Store
+
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Temporary files
+temp
+*.log
+
+# Uploaded files
+back_end/uploads/
